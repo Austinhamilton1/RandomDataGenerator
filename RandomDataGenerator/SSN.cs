@@ -8,5 +8,16 @@ namespace RandomDataGenerator
 {
     internal class SSN
     {
+        public string Number { get; init; }
+
+        public SSN()
+        { 
+            
+        }
+
+        public override string ToString()
+        {
+            
+        }
     }
 }
