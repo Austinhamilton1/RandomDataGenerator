@@ -8,5 +8,16 @@ namespace RandomDataGenerator
 {
     internal class Phone
     {
+        public string Number { get; init; }
+
+        public Phone() 
+        {
+            
+        }
+
+        public override string ToString()
+        {
+
+        }
     }
 }
