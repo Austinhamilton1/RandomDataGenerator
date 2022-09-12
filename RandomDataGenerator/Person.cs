@@ -31,6 +31,17 @@ namespace RandomDataGenerator
 
         public Person()
         {
+            Random random = new Random();
+
+            FirstName = _arrayOfFirstNames[random.Next(_arrayOfFirstNames.Length)];
+
+            //convert the values to an array and then select a random value from the array
+            //convert that value to a string
+            Array values = Enum.GetValues(typeof(LastName));
+            LastName = (string)values.GetValue(random.Next(values.Length));
+
+            DateTime now = DateTime.Today;
+            
 
         }
 
