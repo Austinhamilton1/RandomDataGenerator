@@ -62,8 +62,16 @@ namespace RandomDataGenerator
         }
 
         public int Age() 
-        { 
+        {
+            DateTime now = DateTime.Now;
+            int age = now.Year - BirthDate.Year;
 
+            //if the current date is before the Person's birthday, subtract a year
+            //as they haven't had that birthday yet
+            if ((BirthDate.Month > now.Month) || (BirthDate.Month == now.Month && BirthDate.Day > now.Day))
+                age--;
+
+            return age;
         }
 
         public void AddDependent() 
