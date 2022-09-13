@@ -12,12 +12,14 @@ namespace RandomDataGenerator
 
         public Phone() 
         {
-            
+            Number = "1234567890";
         }
 
         public override string ToString()
         {
-
+            return Number.Substring(0, 3) +
+                "-" + Number.Substring(3, 3) +
+                "-" + Number.Substring(6, 4);
         }
     }
 }

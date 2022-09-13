@@ -38,7 +38,7 @@ namespace RandomDataGenerator
             //convert the values to an array and then select a random value from the array
             //convert that value to a string
             Array values = Enum.GetValues(typeof(LastName));
-            LastName = (string)values.GetValue(random.Next(values.Length));
+            LastName = values.GetValue(random.Next(values.Length)).ToString();
 
             //get the year, month and date of the current date
             int year = DateTime.Now.Year;
@@ -82,7 +82,8 @@ namespace RandomDataGenerator
         public override string ToString()
         {
             return $"Person: {FirstName} {LastName}\n" +
-                $"Birth Date: {BirthDate.ToString()} ({Age()} years old)\n" +
+                $"Birth Date: {BirthDate.Month}/{BirthDate.Day}/{BirthDate.Year}" +
+                $" ({Age()} years old)\n" +
                 $"Social Security Number: {SSN.ToString()}\n" +
                 $"Phone Number: {Phone.ToString()}\n";
         }
