@@ -23,6 +23,8 @@ namespace RandomDataGenerator
         };
         Dependent[] _dependents;
 
+        //the init keyword makes the property so that it can be set at creation, but not
+        //changed after that
         public string FirstName { get; init; }
         public string LastName { get; init; }
         public DateTime BirthDate { get; init; }
