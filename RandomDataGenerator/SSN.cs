@@ -23,18 +23,16 @@ namespace RandomDataGenerator
             //it can also be 666 or 000 so add all that to an array
             string[] possibleFirstNums = { "000", "666", nineHundred };
 
-            string possibleSecondNums = "00";
-            string possibleThirdNums = "0000";
+            string first = possibleFirstNums[random.Next(possibleFirstNums.Length)];
+            string second = "00";
+            string third = "0000";
 
-            Number = possibleFirstNums[random.Next(possibleFirstNums.Length)] +
-                possibleSecondNums + possibleThirdNums;
+            Number = first + second + third;
         }
 
         public override string ToString()
         {
-            return Number.Substring(0, 3) + 
-                "-" + Number.Substring(3, 2) + 
-                "-" + Number.Substring(5, 4);
+            return Number.Insert(3, "-").Insert(6, "-");
         }
     }
 }
