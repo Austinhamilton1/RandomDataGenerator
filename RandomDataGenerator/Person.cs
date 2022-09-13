@@ -40,8 +40,24 @@ namespace RandomDataGenerator
             Array values = Enum.GetValues(typeof(LastName));
             LastName = (string)values.GetValue(random.Next(values.Length));
 
-            DateTime now = DateTime.Today;
-            
+            //get the year, month and date of the current date
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+            int day = DateTime.Now.Day;
+
+            //the start date is the date of a birthday exactly 80 years before today
+            //the end date is the date of a birthday exactly 18 years before today
+            DateTime startDate = new DateTime(year - 80, month, day);
+            DateTime endDate = new DateTime(year - 18, month, day);
+
+            //generate an integer in between the range of days between the two dates
+            //and add that the the start date to get a new date
+            int range = Convert.ToInt32(endDate.Subtract(startDate).TotalDays);
+            BirthDate = startDate.AddDays(random.Next(range));
+
+            SSN = new SSN();
+
+            Phone = new Phone();
 
         }
 
@@ -57,7 +73,10 @@ namespace RandomDataGenerator
 
         public override string ToString()
         {
-
+            return $"Person: {FirstName} {LastName}\n" +
+                $"Birth Date: {BirthDate.ToString()} ({Age()} years old)\n" +
+                $"Social Security Number: {SSN.ToString()}\n" +
+                $"Phone Number: {Phone.ToString()}\n";
         }
     }
 }
